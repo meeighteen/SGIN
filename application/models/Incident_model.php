@@ -61,7 +61,7 @@
 			
 		}
 		public function eliminarMantenimiento($id){
-			$this->db->where('id_incidencia',$id);
+			$this->db->where('id_mantenimiento',$id);
 			$this->db->delete('mantenimiento');
 		}
 		//------------FUNCIONES EXTRAS---------------------------------------------------------------------
