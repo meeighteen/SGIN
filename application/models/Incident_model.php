@@ -46,13 +46,13 @@
 		}
 		//REGISTRO DE MANTENIMIENTOS
 		//----------------------------------------------------------------------------------------------------------------------
-		public function insert_mantenimiento(){
+		public function insert_mantenimiento($id){
 
 			$dataMantenimiento=array(
 				'diag_mantenimiento' 	=> $this->input->post('diag_tecnico'),
 				'desc_mantenimiento'	=> $this->input->post('descripcion_trabajo'),
 				'rec_mantenimiento' 	=> $this->input->post('recomendaciones'),
-				'id_incidencia' 		=> $this->input->post(''),
+				'id_incidencia' 		=> $id,
 				'id_tipo_mantenimiento' 	=> $this->input->post('tipo_mantenimiento'),
 			);
 			return $this->db->insert('mantenimiento',$dataMantenimiento);
@@ -60,7 +60,10 @@
 		public function edit_mantenimiento(){
 			
 		}
-
+		public function eliminarMantenimiento($id){
+			$this->db->where('id_incidencia',$id);
+			$this->db->delete('mantenimiento');
+		}
 		//------------FUNCIONES EXTRAS---------------------------------------------------------------------
 		public function obtenerIncidencia($id){
 			$this->db->where('id_incidencia',$id);
@@ -103,8 +106,10 @@
 			$query=$this->db->get("incidencia");
 			return $query;			
 		}
-		public function show_mantenimiento(){
+		public function show_mantenimiento($id){
+			$this->db->where('id_incidencia',$id);
 			$query=$this->db->get('mantenimiento');
+			return $query;
 		}
 		//----------------------------------------------------------------------------------------
 	}

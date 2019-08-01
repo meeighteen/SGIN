@@ -1,12 +1,14 @@
 <?php echo validation_errors(); ?>
-<?php echo form_open('incidents/register_mantenimiento'); ?>
+<!-- <?php //echo form_open('incidents/registro_mantenimiento'); ?> -->
+<form id="form" name="form" method="POST" action="<?=base_url()?>incidents/registro_mantenimiento/<?=$id_incidencia?>">
 <h2><?= $title ?></h2>
+<a href="<?php echo base_url(); ?>incidents/">volver << Incidencias</a>
   	<div class="form-row">
   		<div class="form-group col-md-6">
 			<label for="Tipo_mantenimiento">Tipo de Mantenimiento</label>
 	      	<select class="form-control" name="tipo_mantenimiento">
-		        <option value="0">Correctivo</option>
-		        <option value="1">Preventivo</option>
+		        <option value="1">Correctivo</option>
+		        <option value="2">Preventivo</option>
 	      </select>
   		</div>	
 <!--   		<div class="form-group col-md-6">
@@ -41,4 +43,6 @@
 	</div>
    	
    	<button type="submit" class="btn btn-primary">Registrar Mantenimiento</button>
-<?php echo form_close(); ?>
+<!-- <?php //echo form_close(); ?>
+ -->
+ </form>

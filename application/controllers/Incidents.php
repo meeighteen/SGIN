@@ -16,8 +16,9 @@
 			if (!$this->session->userdata('logged_in')) {
 				redirect('users/login');
 			}
+			$id = $this->uri->segment(3);
 			$data['title']='Ver mantenimientos';
-			$data['mantenimientos']=$this->incident_model->show_mantenimiento();
+			$data['mantenimientos']=$this->incident_model->show_mantenimiento($id);
 			$this->load->view('templates/header');
 			$this->load->view('incidents/show_mantenimiento',$data);
 			$this->load->view('templates/footer');
@@ -29,6 +30,8 @@
 				redirect('users/login');
 			}
 			$data['title']='Registrar mantenimiento';
+			$id = $this->uri->segment(3);
+			$data['id_incidencia']=$id;
 
 			$this->form_validation->set_rules('tipo_mantenimiento', 'Tipo de mantenimiento', 'required');
 			$this->form_validation->set_rules('diag_tecnico', 'Diagnóstico Técnico', 'required');
@@ -38,8 +41,8 @@
 				$this->load->view('incidents/registro_mantenimiento',$data);
 				$this->load->view('templates/footer');
 			}else{
-				$this->incident_model->insert_mantenimiento();
-				redirect('Incidents');
+				$this->incident_model->insert_mantenimiento($id);
+				redirect('incidents/index');
 			}
 		}
 
@@ -149,6 +152,12 @@
 			}
 			$this->incident_model->eliminarIncidencia($id_incidencia);
 			$this->incident_model->eliminarEquipo($id_equipo);
+			redirect('incidents');
+		}
+
+		public function delete_mantenimiento(){
+			$id_incidencia=$this->uri->segment(3);
+			$this->incident_model->eliminarMantenimiento($id_incidencia);
 			redirect('incidents');
 		}
 

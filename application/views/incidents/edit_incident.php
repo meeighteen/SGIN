@@ -1,6 +1,7 @@
 <form id="form" name="form" method="POST" action="<?=base_url()?>incidents/actualizarIncidencia/<?=$id_incidencia?>">
 <!--<?php //echo form_open('incidents/actualizarIncidencia/"'.$id_incidencia.'" '); ?> -->
 <h2><?= $title .' # '. $id_incidencia?></h2>
+<a href="<?php echo base_url(); ?>incidents/">volver << Incidencias</a>
 	<input type="hidden" name="id_equipo" value="<?=$id_equipo?>">
   	<div class="form-row">
 	    <div class="form-group col-md-4">
@@ -105,9 +106,6 @@
     <div class="form-row">
     	<div class="form-group col-md-10">
     		<button type="submit" class="btn btn-primary">Guardar cambios</button>
-    	</div>
-    	<div class="form-group col-md-2">
-    		<a class="btn btn-primary" role="button" href="<?php echo base_url(); ?>incidents/show_mantenimiento/<?= $id_incidencia ?>">Ver mantenimientos</a>
     	</div>
     </div>
     
