@@ -9,7 +9,6 @@
             <th>Estado</th>
             <th>Ubicación</th>
             <th>Mantenimientos</th>
-            <th>Registrar mantenimiento</th>
             <th>Editar</th>
             <th>Eliminar</th>
           </tr>
@@ -35,8 +34,7 @@
                 if($row1->id_ubicacion===$row4->id_ubicacion){?>
             <td><?php echo $row4->ubicacion; ?></td>
             <?php }}} ?>
-            <td><?php echo "<a href=".base_url()."incidents/show_mantenimiento/".$row1->id_incidencia.">ver</a>" ?></td>
-            <td><?php echo "<a href=".base_url()."incidents/registro_mantenimiento/".$row1->id_incidencia.">registrar</a>" ?></td>
+            <td><?php echo "<a href=".base_url()."incidents/show_mantenimiento/".$row1->id_incidencia.">ver</a>" ?> | <?php echo "<a href=".base_url()."incidents/registro_mantenimiento/".$row1->id_incidencia.">registrar</a>" ?></td>
             <td><?php echo "<a href=".base_url()."incidents/edit_incident/".$row1->id_incidencia.">Editar</a>" ?></td>
             <td><?php echo "<a href=".base_url()."incidents/delete_incident/".$row1->id_incidencia.">Eliminar</a>" ?></td>
           </tr>
@@ -64,7 +62,6 @@
             <th>Estado</th>
             <th>Ubicación</th>
             <th>Mantenimientos</th>
-            <th>Registrar mantenimiento</th>
             <th>Editar</th>
             <th>Eliminar</th>
           </tr>
@@ -85,12 +82,11 @@
             <?php }}} ?>
             
             <?php if ($ubicaciones->num_rows()>0) {
-              foreach ($ubicaciones->result() as $row4) {
-                if($row->id_ubicacion===$row4->id_ubicacion){?>
-            <td><?php echo $row4->ubicacion; ?></td>
+              foreach ($ubicaciones->result() as $row7) {
+                if($row->id_ubicacion===$row7->id_ubicacion){?>
+            <td><?php echo $row7->ubicacion; ?></td>
             <?php }}} ?>
-            <td><?php echo "<a href=".base_url()."incidents/show_mantenimiento/".$row->id_incidencia.">ver</a>" ?></td>
-            <td><?php echo "<a href=".base_url()."incidents/registro_mantenimiento/".$row->id_incidencia.">registrar</a>" ?></td>
+            <td><?php echo "<a href=".base_url()."incidents/show_mantenimiento/".$row->id_incidencia.">ver</a>" ?> | <?php echo "<a href=".base_url()."incidents/registro_mantenimiento/".$row->id_incidencia.">registrar</a>" ?></td>
             <td><?php echo "<a href=".base_url()."incidents/edit_incident/".$row->id_incidencia.">Editar</a>" ?></td>
             <td><?php echo "<a href=".base_url()."incidents/delete_incident/".$row->id_incidencia.">Eliminar</a>" ?></td>
           </tr>
