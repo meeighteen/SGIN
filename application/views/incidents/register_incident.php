@@ -69,19 +69,3 @@
     </div>   	
    	<button type="submit" class="btn btn-primary">Registrar Incidencia</button>
 <?php echo form_close(); ?>
-
-<script>
-		$(function () {
-			//Date picker
-			$('#datepicker').datepicker({
-				autoclose: true
-			})
-			//Timepicker
-			$('.timepicker').timepicker({
-				showInputs: false,
-				minuteStep: 5
-			})
-		})
-	</script>
-
-

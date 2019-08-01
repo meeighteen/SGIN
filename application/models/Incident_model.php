@@ -92,6 +92,10 @@
 				return false;
 			}
 		}
+		public function obtenerEstado(){
+			$query=$this->db->get("estado");
+			return $query;	
+		}
 		//----------------------------------------------------------------------------------------
 		//-----------------validaciones-----------------------------------------------------------
 		public function check_codpatrimonio_exists($data){
@@ -103,6 +107,11 @@
 			}
 		}	
 		public function show_incidents(){
+			$query=$this->db->get("incidencia");
+			return $query;			
+		}
+		public function show_incident_new(){
+			$this->db->where('id_estado','1');
 			$query=$this->db->get("incidencia");
 			return $query;			
 		}

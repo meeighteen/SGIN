@@ -7,6 +7,9 @@
 			}
 			$data['title']='Todas las incidencias';
 			$data['incidents']=$this->incident_model->show_incidents();
+			$data['incident']=$this->incident_model->show_incident_new();
+			$data['estados']= $this->incident_model->obtenerEstado();
+			$data['ubicaciones']= $this->extra_model->show_ubicacion();
 			$this->load->view('templates/header');
 			$this->load->view('incidents/index',$data);
 			$this->load->view('templates/footer');
@@ -74,7 +77,6 @@
 			}
 			$id = $this->uri->segment(3);
 			$obtenerIncidencia=$this->incident_model->obtenerIncidencia($id);
-			
 			if($obtenerIncidencia != FALSE){
 				foreach ($obtenerIncidencia->result() as $row) {
 					$id = $row->id_incidencia;
@@ -96,7 +98,6 @@
 				foreach ($obtenerTipoEquipo->result() as $row2) {
 					$tipo_equipo=$row2->tipo_equipo;
 				}
-
 				$data = array(
 					'id_incidencia' => $id,
 					'resp_incidencia' => $responsable,
@@ -117,6 +118,7 @@
 			$data['title']='Editar Incidencia';
 			$data['equipos']= $this->extra_model->show_tequipos();
 			$data['ubicaciones']= $this->extra_model->show_ubicacion();
+			$data['estados']= $this->incident_model->obtenerEstado();
 			$this->load->view('templates/header');
 			$this->load->view('incidents/edit_incident',$data);
 			$this->load->view('templates/footer');
@@ -127,7 +129,7 @@
 			$datosIncidencia = array(
 				'resp_incidencia' => $this->input->post('responsable'),
 				'desc_incidencia' => $this->input->post('descripcion_problema'),
-				'id_estado' => $this->input->post('estado'), 
+				'id_estado' => $this->input->post('select_estado'), 
 				'id_ubicacion' => $this->input->post('area'), 
 			);
 			//die(var_dump($data));

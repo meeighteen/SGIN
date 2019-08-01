@@ -87,7 +87,31 @@
 	    </div>	
     </div>
     <div class="form-row">
-    	<div class="form-group col-md-12">
+    	<div class="form-group col-md-6">
+    	<label for="select_estado">Estado</label>
+    	<select name="select_estado" class="form-control">
+    			<?php 
+	            if ($estados->num_rows() > 0) {
+	              foreach ($estados->result() as $row) {
+	          		if($row->id_estado === $id_estado){
+	          	?>
+	          			<option value="<?= $row->id_estado ?>" selected>
+			    		<?php echo $row->estado; ?>
+			    		</option>
+			    <?php 
+	          		}else{
+	          	?>
+	          			<option value="<?= $row->id_estado ?>">
+			    		<?php echo $row->estado; ?>
+			    		</option>
+		    	<?php
+		    		} 
+	              }
+	            }
+	          	?>
+    	</select>
+    	</div>
+    	<!-- <div class="form-group col-md-12">
 	    	
 	    	<button type="button" class="btn btn-outline-success">Asignar</button>
 			<button type="button" class="btn btn-outline-warning">Analizar</button>	
@@ -101,7 +125,7 @@
 			<button type="button" class="btn btn-outline-info">Verificado</button>
 			<button type="button" class="btn btn-outline-dark">Cerrar</button>
 
-    	</div>
+    	</div> -->
     </div> 
     <div class="form-row">
     	<div class="form-group col-md-10">
