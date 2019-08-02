@@ -10,10 +10,26 @@
 			$data['incident']=$this->incident_model->show_incident_new();
 			$data['estados']= $this->incident_model->obtenerEstado();
 			$data['ubicaciones']= $this->extra_model->show_ubicacion();
+			$data['usuarios']=$this->extra_model->show_user();
 			$this->load->view('templates/header');
 			$this->load->view('incidents/index',$data);
 			$this->load->view('templates/footer');
 
+		}
+		public function show_incident_ubicacion(){
+			if (!$this->session->userdata('logged_in')) {
+				redirect('users/login');
+			}
+			$id = $this->input->post('select_ubicacion');
+			$data['title']='Todas las incidencias';
+			$data['incidents']=$this->incident_model->show_incidents_ubi($id);
+			$data['incident']=$this->incident_model->show_incident_new_ubi($id);
+			$data['estados']= $this->incident_model->obtenerEstado();
+			$data['ubicaciones']= $this->extra_model->show_ubicacion();
+			$data['usuarios']=$this->extra_model->show_user();
+			$this->load->view('templates/header');
+			$this->load->view('incidents/index',$data);
+			$this->load->view('templates/footer');
 		}
 		public function show_mantenimiento(){
 			if (!$this->session->userdata('logged_in')) {
@@ -22,6 +38,7 @@
 			$id = $this->uri->segment(3);
 			$data['title']='Ver mantenimientos';
 			$data['mantenimientos']=$this->incident_model->show_mantenimiento($id);
+			$data['usuarios']=$this->extra_model->show_user();
 			$this->load->view('templates/header');
 			$this->load->view('incidents/show_mantenimiento',$data);
 			$this->load->view('templates/footer');

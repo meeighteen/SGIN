@@ -23,6 +23,10 @@
 			$query=$this->db->get("ubicacion");
 			return $query;			
 		}
+		public function show_user(){
+			$query=$this->db->get("usuario");
+			return $query;		
+		}
 
 		//--------------------------------------------------------------------------
 

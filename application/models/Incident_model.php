@@ -115,6 +115,17 @@
 			$query=$this->db->get("incidencia");
 			return $query;			
 		}
+		public function show_incidents_ubi($id){
+			$this->db->where('id_ubicacion',$id);
+			$query=$this->db->get("incidencia");
+			return $query;			
+		}
+		public function show_incident_new_ubi($id){
+			$this->db->where('id_ubicacion',$id);
+			$this->db->where('id_estado','1');
+			$query=$this->db->get("incidencia");
+			return $query;			
+		}
 		public function show_mantenimiento($id){
 			$this->db->where('id_incidencia',$id);
 			$query=$this->db->get('mantenimiento');
