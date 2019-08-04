@@ -107,6 +107,7 @@
 			}
 		}	
 		public function show_incidents(){
+			$this->db->where('id_estado !=','1');
 			$query=$this->db->get("incidencia");
 			return $query;			
 		}
@@ -117,6 +118,7 @@
 		}
 		public function show_incidents_ubi($id){
 			$this->db->where('id_ubicacion',$id);
+			$this->db->where('id_estado !=','1');
 			$query=$this->db->get("incidencia");
 			return $query;			
 		}

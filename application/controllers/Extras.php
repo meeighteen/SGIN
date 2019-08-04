@@ -2,8 +2,8 @@
 	Class Extras extends CI_Controller{
 
 		public function register_nequipo(){
-			if (!$this->session->userdata('logged_in')) {
-				redirect('users/login');
+			if (!$this->session->userdata('logged_in') || !$this->session->userdata('is_admin')) {
+				redirect('extras');
 			}
 			$data['title']='Registrar nuevo equipo';
 			$data['equipos']= $this->extra_model->show_tequipos();
@@ -20,8 +20,8 @@
 			}	
 		}
 		public function register_nubicacion(){
-			if (!$this->session->userdata('logged_in')) {
-				redirect('users/login');
+			if (!$this->session->userdata('logged_in') || !$this->session->userdata('is_admin')) {
+				redirect('extras');
 			}
 			$data['title']='Registrar nueva ubicación';
 			$data['ubicaciones']= $this->extra_model->show_ubicacion();	

@@ -23,7 +23,8 @@
 			$result = $this->db->get('usuario');
 
 			if ($result->num_rows() == 1) {
-				return $result->row(0)->cod_usuario;
+
+				return $result->row(0);
 			}else{
 				return false;
 			}

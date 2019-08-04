@@ -164,6 +164,9 @@
 		}
 
 		public function delete_incident(){
+			if (!$this->session->userdata('logged_in' || !$this->session->userdata('is_admin'))) {
+				redirect('incidents');
+			}
 			$id_incidencia=$this->uri->segment(3);
 			$obtenerIncidencia=$this->incident_model->obtenerIncidencia($id_incidencia);
 			foreach ($obtenerIncidencia->result() as $row) {
@@ -175,6 +178,9 @@
 		}
 
 		public function delete_mantenimiento(){
+			if (!$this->session->userdata('logged_in' || !$this->session->userdata('is_admin'))) {
+				redirect('incidents');
+			}
 			$id_incidencia=$this->uri->segment(3);
 			$this->incident_model->eliminarMantenimiento($id_incidencia);
 			redirect('incidents');

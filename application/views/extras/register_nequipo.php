@@ -18,10 +18,10 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col">#</th>
             <th scope="col">tipo de equipo</th>
             <th>Editar</th>
-            <th>Eliminar</th>
+           <!--  <th>Eliminar</th> -->
           </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
             <th><?php echo $row->id_tipo_equipo; ?></th>
             <th><?php echo $row->tipo_equipo; ?></th>
             <th><a href="">Editar</a></th>
-            <th><a href="">Eliminar</a></th>
+            <!-- <th><a href="">Eliminar</a></th> -->
           </tr>
           <?php 
               }

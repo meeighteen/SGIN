@@ -1,11 +1,11 @@
 <?php 
 	Class Users extends CI_Controller{
 		public function register(){
-			if (!$this->session->userdata('logged_in')) {
-				redirect('users/login');
+			if (!$this->session->userdata('logged_in' || !$this->session->userdata('is_admin'))) {
+				redirect('extras');
 			}
 			$data['title'] = 'Registro de Personal';
-
+			$data['usuarios']=$this->extra_model->show_user();
 			$this->form_validation->set_rules('name', 'Nombres', 'required');
 			$this->form_validation->set_rules('lastname', 'Apellidos', 'required');
 			$this->form_validation->set_rules('dni', 'D.N.I', 'required|callback_check_dni_exists'); 
@@ -22,9 +22,9 @@
 				$enc_password = md5($this->input->post('password1'));
 				$this->user_model->register($enc_password);
 
-				$this->session->set_flashdata('user_registered','Ya estas registrado. Puedes loguearte.');
+				$this->session->set_flashdata('user_registered','Usuario registrado.');
 
-				redirect('home');
+				redirect('users/register');
 			}
 		}
 		public function login(){
@@ -50,9 +50,10 @@
 				if($user_id){
 					//crear sesion
 					$user_data = array(
-						'user_id' => $user_id,
+						'user_id' => $user_id->cod_usuario,
 						'email' => $email,
-						'logged_in' => true
+						'logged_in' => true,
+						'is_admin' => $user_id->tipo_usuario
 					);
 
 					$this->session->set_userdata($user_data);

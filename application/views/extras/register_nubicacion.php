@@ -19,7 +19,7 @@
       <th>ID</th>
       <th>Ubicación</th>
       <th>Editar</th>
-      <th>Eliminar</th>
+      <!-- <th>Eliminar</th> -->
     </tr>
   </thead>
   <tbody>
@@ -31,7 +31,7 @@
       <th><?php echo $row->id_ubicacion; ?></th>
       <th><?php echo $row->ubicacion; ?></th>
       <th><a href="">Editar</a></th>
-      <th><a href="">Eliminar</a></th>
+      <!-- <th><a href="">Eliminar</a></th> -->
     </tr>
     <?php 
         }
