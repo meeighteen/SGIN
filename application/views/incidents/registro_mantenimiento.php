@@ -2,7 +2,7 @@
 <!-- <?php //echo form_open('incidents/registro_mantenimiento'); ?> -->
 <form id="form" name="form" method="POST" action="<?=base_url()?>incidents/registro_mantenimiento/<?=$id_incidencia?>">
 <h2><?= $title ?></h2>
-<a href="<?php echo base_url(); ?>incidents/">volver << Incidencias</a>
+<h5><a href="<?php echo base_url(); ?>incidents/"><< Incidencias <<</a></h5>
   	<div class="form-row">
   		<div class="form-group col-md-6">
 			<label for="Tipo_mantenimiento">Tipo de Mantenimiento</label>

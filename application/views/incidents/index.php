@@ -1,6 +1,8 @@
+
+
   <?php echo form_open('incidents/show_incident_ubicacion'); ?>
     <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
           <select class="form-control" name="select_ubicacion">
                     <option selected>Seleccione</option>
                     <?php 
@@ -16,13 +18,14 @@
                         ?>
           </select> 
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-1.3">
           <button type="submit" class="btn btn-outline-success">Buscar</button> 
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
         <a href="<?=base_url()?>incidents" role="button" class="btn btn-outline-success">Ver todas</a>
         </div>
     </div>
+    <h5><a href="<?php echo base_url(); ?>"><< Inicio <<</a></h5>
   <?php echo form_close(); ?>
   <div class="form-row">
     <div class="form-group col-md-12">

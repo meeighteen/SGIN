@@ -1,6 +1,7 @@
 <?php echo validation_errors(); ?>
 <?php echo form_open('incidents/register_incident'); ?>
 <h2><?= $title ?></h2>
+<h5><a href="<?php echo base_url(); ?>"><< Inicio <<</a></h5>
   	<div class="form-row">
 	    <div class="form-group col-md-4">
 	    	<label for="Area">Ubicación</label>

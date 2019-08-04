@@ -2,7 +2,8 @@
 
 <div class="my-3 p-3 bg-white rounded shadow-sm">
 	<h4 class="border-bottom border-gray pb-2 mb-0"><?= $title ?></h4>
-	<a href="<?php echo base_url(); ?>incidents/">volver << Incidencias</a>
+	<br>
+	<h5><a href="<?php echo base_url(); ?>incidents/"><< Incidencias <<</a></h5>
 	 <?php if ($mantenimientos->num_rows() > 0) { ?>
 	<?php foreach($mantenimientos->result() as $mant): ?>
 

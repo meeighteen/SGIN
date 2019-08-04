@@ -64,7 +64,7 @@
 
 					//enviar respuesta
 					$this->session->set_flashdata('user_loggedin','Accediste al SGIn.');
-					redirect('home');
+					redirect('/');
 				}else{
 					$this->session->set_flashdata('login_failed','Usuario y/o Contraseña incorrectos.');
 					redirect('users/login');
@@ -85,7 +85,7 @@
 			$this->session->unset_userdata('email');
 
 			$this->session->set_flashdata('user_loggedout','Saliste del SGI.');
-			redirect('users/login');
+			redirect('/');
 		}
 
 
