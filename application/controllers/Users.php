@@ -1,7 +1,7 @@
 <?php 
 	Class Users extends CI_Controller{
 		public function register(){
-			if (!$this->session->userdata('logged_in' || !$this->session->userdata('is_admin'))) {
+			if (!$this->session->userdata('logged_in') || !$this->session->userdata('is_admin')) {
 				redirect('extras');
 			}
 			$data['title'] = 'Registro de Personal';
@@ -28,6 +28,9 @@
 			}
 		}
 		public function login(){
+			if ($this->session->userdata('logged_in')) {
+				redirect('/');
+			}
 			$data['title'] = 'Entrar al SGIN';
 
 			$this->form_validation->set_rules('email', 'Correo Electrónico', 'required');
