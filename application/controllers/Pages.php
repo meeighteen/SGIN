@@ -5,6 +5,7 @@
 			if (!file_exists(APPPATH.'/views/pages/'.$page.'.php')) {
 				show_404();
 			}
+			$data['usuario']=$this->session->userdata('nombre');
 			$data['title']=ucfirst($page);
 			$this->load->view('templates/header');
 			$this->load->view('pages/'.$page,$data);

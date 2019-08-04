@@ -53,6 +53,7 @@
 				if($user_id){
 					//crear sesion
 					$user_data = array(
+						'nombre' => $user_id->nom_usuario,
 						'user_id' => $user_id->cod_usuario,
 						'email' => $email,
 						'logged_in' => true,
