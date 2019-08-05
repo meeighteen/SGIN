@@ -135,7 +135,7 @@
                         if($row->cod_usuario===$row6->cod_usuario){?>
                 <td><?php echo $row6->nom_usuario;?><br><?php echo $row6->ape_usuario; ?></td>
                     <?php }}} ?>
-                <td><a href=""><i class='far fa-file-pdf' style='font-size:25px;color:red'></i></a></td>    
+                <td><a href="<?php echo base_url(); ?>report_incident"><i class='far fa-file-pdf' style='font-size:25px;color:red'></i></a></td>    
                 <td><?php echo "<a href=".base_url()."incidents/edit_incident/".$row->id_incidencia.">Editar</a>" ?> | <?php echo "<a href=".base_url()."incidents/delete_incident/".$row->id_incidencia.">Eliminar</a>" ?></td>
               </tr>
                   <?php 

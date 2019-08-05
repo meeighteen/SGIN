@@ -5,17 +5,17 @@
 		<h2 class="text"><?= $title; ?></h2>
 	<div class="form-row">
 		<div class="form-group col-md-4">
-			<label>Nombres</label>
+			<label>Nombres <small>(*)</small></label>
 			<input type="text" class="form-control" name="name" placeholder="Nombres">
 		</div>
 		<div class="form-group col-md-4">
-			<label>Apellidos</label>
+			<label>Apellidos <small>(*)</small></label>
 			<input type="text" class="form-control" name="lastname" placeholder="Apellidos">
 		</div>
 	</div>
 	<div class="form-row">
 		<div class="form-group col-md-2">
-			<label>DNI</label>
+			<label>DNI <small>(*)</small></label>
 			<input type="text" class="form-control" name="dni" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" maxlength="8" placeholder="DNI">
 		</div>
 		<div class="form-group col-md-2">
@@ -23,17 +23,17 @@
 			<input type="text" class="form-control" name="phone" pattern="[9][1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" maxlength="9"placeholder="Celular">
 		</div>
 		<div class="form-group col-md-4">
-			<label>Correo Electrónico</label>
+			<label>Correo Electrónico <small>(*)</small></label>
 			<input type="email" class="form-control" name="email" placeholder="Correo Electrónico">
 		</div>
 	</div>
 	<div class="form-row">
 		<div class="form-group col-md-4">
-			<label>Contraseña</label>
+			<label>Contraseña <small>(*)</small></label>
 			<input type="password" class="form-control" name="password1" placeholder="Contraseña">
 		</div>
 		<div class="form-group col-md-4">
-			<label>Confirmación de contraseña</label>
+			<label>Confirmación de contraseña <small>(*)</small></label>
 			<input type="password" class="form-control" name="password2" placeholder="Confirme su contraseña">
 		</div>
 

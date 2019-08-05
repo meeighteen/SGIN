@@ -9,7 +9,7 @@
 			$this->form_validation->set_rules('name', 'Nombres', 'required');
 			$this->form_validation->set_rules('lastname', 'Apellidos', 'required');
 			$this->form_validation->set_rules('dni', 'D.N.I', 'required|callback_check_dni_exists'); 
-			$this->form_validation->set_rules('phone', 'Celular', 'required');
+			/*$this->form_validation->set_rules('phone', 'Celular', 'required');*/
 			$this->form_validation->set_rules('email', 'Correo Electrónico', 'required|callback_check_email_exists');
 			$this->form_validation->set_rules('password1', 'Contraseña', 'required');
 			$this->form_validation->set_rules('password2', 'Confirmación de Contraseña', 'matches[password1]');
