@@ -2,6 +2,7 @@
 <?php echo form_open('extras/register_nequipo'); ?>
 <div>
   <h2 class="text"><?= $title; ?></h2>
+  <h5><a href="<?php echo base_url(); ?>extras"> << Extras << </a></h5>
   <div class="form-row">
     <div class="col-md-4 col-md-offset-4">
       

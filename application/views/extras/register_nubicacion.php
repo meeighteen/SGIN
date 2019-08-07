@@ -1,6 +1,7 @@
 <?php echo validation_errors(); ?>
 <?php echo form_open('extras/register_nubicacion'); ?>
 <h2><?= $title; ?></h2>
+<h5><a href="<?php echo base_url(); ?>extras"> << Extras << </a></h5>
 <div class="form-row">
 	<div class="col-md-4 col-md-offset-4">
 		<div class="form-group">

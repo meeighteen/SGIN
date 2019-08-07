@@ -1,4 +1,5 @@
 <h2><?= $title ?></h2>
+<h5><a href="<?php echo base_url(); ?>"> << Inicio << </a></h5>
 <div class="container">
 	<div class="form-row">
 		<ul>
