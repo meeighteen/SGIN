@@ -1,3 +1,4 @@
+<?php echo validation_errors(); ?>
 <form id="form" name="form" method="POST" action="<?=base_url()?>incidents/actualizarIncidencia/<?=$id_incidencia?>">
 <!--<?php //echo form_open('incidents/actualizarIncidencia/"'.$id_incidencia.'" '); ?> -->
 <h2><?= $title .' # '. $id_incidencia?></h2>
@@ -111,6 +112,29 @@
 	          	?>
     	</select>
     	</div>
+    	 <div class="form-row">
+    	<div class="form-group col-md-12">
+    		<label for="select_estado">Estado: (beta)</label><br>
+    			<?php if($id_estado === '1'){ ?>
+					<button type="submit" class="btn btn-outline-success">Asignar</button>	          			
+			    <?php }else if ($id_estado === '2') { ?>
+	          		<button type="submit" class="btn btn-outline-warning">Analizar</button>
+	          	<?php }else if ($id_estado === '3') { ?>
+	          		<button type="submit" class="btn btn-outline-secondary">duplicada</button>	
+					<button type="submit" class="btn btn-outline-danger">rechazada</button>
+					<button type="submit" class="btn btn-outline-success">Resuelta</button>
+				<?php }else if ($id_estado === '4' || $id_estado === '5' ) { ?>
+	          		<button type="submit" class="btn btn-outline-dark">Cerrar</button>
+	          	<?php }else if ($id_estado === '6') { ?>
+	          		<button type="submit" class="btn btn-outline-warning">Pendiente a prueba</button>	
+	          	<?php }else if ($id_estado === '7') { ?>
+	          		<button type="submit" class="btn btn-outline-danger">Reabrir</button>
+	          	<?php }else if ($id_estado === '8') { ?>
+	          		<button type="submit" class="btn btn-outline-info">Verificado</button>
+	          	<?php }else if ($id_estado === '9') { ?>
+	          		<button type="submit" class="btn btn-outline-dark">Cerrar</button>
+	          	<?php } ?>
+    	</div>
     	<!-- <div class="form-group col-md-12">
 	    	
 	    	<button type="button" class="btn btn-outline-success">Asignar</button>
@@ -127,6 +151,7 @@
 
     	</div> -->
     </div> 
+</div>
     <div class="form-row">
     	<div class="form-group col-md-10">
     		<button type="submit" class="btn btn-primary">Guardar cambios</button>

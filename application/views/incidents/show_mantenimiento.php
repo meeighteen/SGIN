@@ -13,10 +13,12 @@
 	        <strong class="d-block text-dark"><?php echo date('d-m-Y H:i:s',strtotime($mant->fecha_mantenimiento));?></strong>
 	        <strong class="d-block text-gray-dark">Diagnóstico:</strong><?php echo $mant->diag_mantenimiento;?>
 	        <strong class="d-block text-gray-dark">Descripcion del trabajo realizado:</strong><?php echo $mant->desc_mantenimiento; ?>
-	        <strong class="d-block text-gray-dark">Tipo de mantenimiento:</strong><?php if ($mant->id_tipo_mantenimiento = '1') {?> Correctivo<?php }else{?> Preventivo <?php } ?>	
+	        <strong class="d-block text-gray-dark">Tipo de mantenimiento:</strong><?php if ($mant->id_tipo_mantenimiento == '1') {?> Correctivo<?php }else{?> Preventivo <?php } ?>	
 	        <strong class="d-block text-gray-dark">Recomendaciones</strong><?php echo $mant->rec_mantenimiento;?>
 	      </p>
-	     	<?php echo "<a href=".base_url()."incidents/delete_mantenimiento/".$mant->id_mantenimiento.">Eliminar</a>" ?>
+
+	      	<a class="btn btn-success" href="<?php echo base_url(); ?>incidents/edit_mantenimiento/<?= $mant->id_mantenimiento;?>" role="button">Editar</a>
+	      	<a class="btn btn-danger" href="<?php echo base_url(); ?>incidents/delete_mantenimiento/<?= $mant->id_mantenimiento;?>" role="button">Eliminar</a>
 	    </div>
 
 	  <?php endforeach; ?>

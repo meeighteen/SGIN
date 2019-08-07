@@ -57,8 +57,9 @@
 			);
 			return $this->db->insert('mantenimiento',$dataMantenimiento);
 		}
-		public function edit_mantenimiento(){
-			
+		public function actualizarMantenimiento($id,$data){
+			$this->db->where('id_mantenimiento',$id);
+			$this->db->update('mantenimiento',$data);
 		}
 		public function eliminarMantenimiento($id){
 			$this->db->where('id_mantenimiento',$id);
@@ -68,6 +69,15 @@
 		public function obtenerIncidencia($id){
 			$this->db->where('id_incidencia',$id);
 			$query=$this->db->get('incidencia');
+			if($query->num_rows() > 0){
+				return $query;
+			}else{
+				return false;
+			}
+		}
+		public function obtenerMantenimiento($id){
+			$this->db->where('id_mantenimiento',$id);
+			$query=$this->db->get('mantenimiento');
 			if($query->num_rows() > 0){
 				return $query;
 			}else{

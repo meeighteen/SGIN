@@ -77,7 +77,7 @@
 			$this->form_validation->set_rules('responsable', 'Responsable', 'required');
 			$this->form_validation->set_rules('descripcion_problema', 'Descripción del problema', 'required');
 			$this->form_validation->set_rules('descripcion_equipo', 'Descripción del equipo', 'required');
-			$this->form_validation->set_rules('codigo_patrimonio', 'Codigo de patrimonio', 'required|callback_check_codpatrimonio_exists');
+			/*$this->form_validation->set_rules('codigo_patrimonio', 'Codigo de patrimonio', 'required|callback_check_codpatrimonio_exists');*/
 			if ($this->form_validation->run() ===FALSE) {
 				$this->load->view('templates/header');
 				$this->load->view('incidents/register_incident',$data);
@@ -160,11 +160,12 @@
 				'id_tipo_equipo' => $this->input->post('select_equipo')
 			);
 			$this->incident_model->actualizarEquipo($id_equipo,$datosEquipo);
-			redirect('incidents');
+			$this->session->set_flashdata('in_updated','Incidencia actualizada.');
+			redirect('Incidents/edit_incident/'.$id_incidencia.'');
 		}
 
 		public function delete_incident(){
-			if (!$this->session->userdata('logged_in' || !$this->session->userdata('is_admin'))) {
+			if (!$this->session->userdata('logged_in') || !$this->session->userdata('is_admin')) {
 				redirect('incidents');
 			}
 			$id_incidencia=$this->uri->segment(3);
@@ -174,11 +175,65 @@
 			}
 			$this->incident_model->eliminarIncidencia($id_incidencia);
 			$this->incident_model->eliminarEquipo($id_equipo);
+			//los mantenimientos quedan registrados
 			redirect('incidents');
 		}
-
+		public function edit_mantenimiento(){
+			if (!$this->session->userdata('logged_in')) {
+				redirect('incidents');
+			}
+			$id_mantenimiento=$this->uri->segment(3);
+			$obtenerMantenimiento=$this->incident_model->obtenerMantenimiento($id_mantenimiento);
+			if($obtenerMantenimiento != FALSE){
+				foreach ($obtenerMantenimiento->result() as $row) {
+					$id = $row->id_mantenimiento;
+					$diagnostico = $row->diag_mantenimiento;
+					$descripcion = $row->desc_mantenimiento;
+					$recomendaciones = $row->rec_mantenimiento;
+					$fecha = $row->fecha_mantenimiento;
+					$id_tipo_mantenimiento = $row->id_tipo_mantenimiento;
+				}
+				$data = array(
+					'id_mantenimiento' => $id,
+					'diag_mantenimiento' => $diagnostico,
+					'desc_mantenimiento' =>  $descripcion,
+					'rec_mantenimiento' =>  $recomendaciones,
+					'fecha_mantenimiento' =>  $fecha,
+					'id_tipo_mantenimiento' => $id_tipo_mantenimiento,
+				);
+			}else{
+				return FALSE;
+			}
+			$data['title']='Editar Mantenimiento';
+			$this->load->view('templates/header');
+			$this->load->view('incidents/edit_mantenimiento',$data);
+			$this->load->view('templates/footer');
+		}
+		public function actualizar_mantenimiento(){
+			$id_mantenimiento=$this->uri->segment(3);
+			//die(var_dump($id_incidencia));
+			$datosMantenimiento = array(
+				'id_mantenimiento' => $id_mantenimiento,
+				'diag_mantenimiento' => $this->input->post('diag_tecnico'),
+				'desc_mantenimiento' => $this->input->post('descripcion_trabajo'),
+				'rec_mantenimiento' => $this->input->post('recomendaciones'), 
+				'id_tipo_mantenimiento' => $this->input->post('tipo_mantenimiento'), 
+			);
+			$this->form_validation->set_rules('diag_tecnico', 'Diagnóstico Técnico', 'required');
+			$this->form_validation->set_rules('descripcion_trabajo', 'Descripción del trabajo', 'required');
+			if ($this->form_validation->run() === FALSE) {
+				$datosMantenimiento['title']='Editar Mantenimiento';
+				$this->load->view('templates/header');
+				$this->load->view('incidents/edit_mantenimiento',$datosMantenimiento);
+				$this->load->view('templates/footer');
+			}else{
+			$this->incident_model->actualizarMantenimiento($id_mantenimiento,$datosMantenimiento);
+			$this->session->set_flashdata('mant_updated','Mantenimiento actualizado.');
+			redirect('Incidents/edit_mantenimiento/'.$id_mantenimiento.'');
+			}
+		}
 		public function delete_mantenimiento(){
-			if (!$this->session->userdata('logged_in' || !$this->session->userdata('is_admin'))) {
+			if (!$this->session->userdata('logged_in') || !$this->session->userdata('is_admin')) {
 				redirect('incidents');
 			}
 			$id_incidencia=$this->uri->segment(3);

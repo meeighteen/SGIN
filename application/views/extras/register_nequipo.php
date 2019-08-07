@@ -32,7 +32,7 @@
           <tr>
             <th><?php echo $row->id_tipo_equipo; ?></th>
             <th><?php echo $row->tipo_equipo; ?></th>
-            <th><a href="">Editar</a></th>
+            <th><a href="<?php echo base_url(); ?>extras/edit_equipo/<?= $row->id_tipo_equipo;?>">Editar</a></th>
             <!-- <th><a href="">Eliminar</a></th> -->
           </tr>
           <?php 

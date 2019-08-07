@@ -30,7 +30,7 @@
     <tr>
       <th><?php echo $row->id_ubicacion; ?></th>
       <th><?php echo $row->ubicacion; ?></th>
-      <th><a href="">Editar</a></th>
+      <th><a href="<?php echo base_url(); ?>extras/edit_ubicacion/<?= $row->id_ubicacion;?>">Editar</a></th>
       <!-- <th><a href="">Eliminar</a></th> -->
     </tr>
     <?php 

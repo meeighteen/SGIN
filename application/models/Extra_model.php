@@ -15,6 +15,32 @@
 			return $this->db->insert('ubicacion',$data);
 
 		}
+		public function obtenerTipoEquipo($id){
+			$this->db->where('id_tipo_equipo',$id);
+			$query=$this->db->get('tipo_equipo');
+			if($query->num_rows() > 0){
+				return $query;
+			}else{
+				return false;
+			}
+		}
+		public function actualizarEquipo($id,$data){
+				$this->db->where('id_tipo_equipo',$id);
+			$this->db->update('tipo_equipo',$data);
+		}
+		public function obtenerUbicacion($id){
+			$this->db->where('id_ubicacion',$id);
+			$query=$this->db->get('ubicacion');
+			if($query->num_rows() > 0){
+				return $query;
+			}else{
+				return false;
+			}
+		}
+		public function actualizarUbicacion($id,$data){
+				$this->db->where('id_ubicacion',$id);
+			$this->db->update('ubicacion',$data);
+		}
 		public function show_tequipos(){
 			$query=$this->db->get("tipo_equipo");
 			return $query;			

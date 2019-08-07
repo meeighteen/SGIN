@@ -9,6 +9,6 @@ class Pdf_report extends TCPDF
 	protected $ci;	
 	function __construct()
 	{
-		//$this->ci =& get_instance();
+		$this->ci =& get_instance();
 	}
 }

@@ -239,7 +239,7 @@ $pdf->lastPage();
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('example_061.pdf', 'I');
+$pdf->Output('Reporte_incidencia.pdf', 'I');
 
 //============================================================+
 // END OF FILE
