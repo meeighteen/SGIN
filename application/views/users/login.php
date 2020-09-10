@@ -1,7 +1,7 @@
 <?php echo validation_errors(); ?>
 <?php echo form_open('users/login'); ?>
-<div class="form-row">
-	<div class="col-md-4 col-md-offset-4">
+<div class="form-row" justify-content="center">
+	<div class="col-md-4 col-md-set-4">
 		<h2 class="text-center"><?= $title; ?></h2>
 		<div class="form-group">
 			<label>Correo Electrónico</label>
